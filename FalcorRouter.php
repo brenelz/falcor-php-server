@@ -10,10 +10,12 @@ class FalcorRouter {
 	}
 
 	public function get($paths) {
-		$matchedRoute = $this->getMatchedRoute($paths);
-		return [
-			$matchedRoute['get']['path'][0] => $matchedRoute['get']['value']
-		];
+    $matchedRoute = $this->getMatchedRoute($paths);
+    return [
+        'jsonGraph' => [
+            $matchedRoute['get']['path'][0] => $matchedRoute['get']['value']
+        ]
+    ];
     }
 
     private function getMatchedRoute($paths) {
